@@ -43,8 +43,24 @@ void menu() {
       transform(str);
 }
 
+
+// Te faltó controlar bien los casos unarios, e.g.
+// -(5+4)
+
+// Te faltó simplificar bien los operadores, e.g.
+// 5+--3 daría 8 ya que -- = +
 int main(int argc, char const *argv[]) {
-    menu();
+    if (argc == 2) {
+        char *str = (char*) argv[1];
+        string newx=variables(str);
+        str=&newx[0];
+        transform(str);
+    }
+    else {
+      throw "One argument expected";
+    }
+
+    //menu();
     //cout << "\nPress enter to continue ...";
     //cin.get();
     return EXIT_SUCCESS;
